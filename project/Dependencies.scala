@@ -8,8 +8,8 @@ object Dependencies {
   private def scalaCompiler(version: String) = ("org.scala-lang"                      % "scala-compiler"                    % version)
     .exclude("org.jline", "jline")
   private val scalaSwing                     = "org.scala-lang.modules"              %% "scala-swing"                       % "3.0.0"
-  private val scalaParserCombinators         = "org.scala-lang.modules"              %% "scala-parser-combinators"          % "2.1.1"
-  private val netty                          = "io.netty"                             % "netty-codec-http"                  % "4.1.87.Final"
+  private val scalaParserCombinators         = "org.scala-lang.modules"              %% "scala-parser-combinators"          % "2.2.0"
+  private val netty                          = "io.netty"                             % "netty-codec-http"                  % "4.1.89.Final"
   private val nettyBuffer                    = netty.withName("netty-buffer")
   private val nettyHandler                   = netty.withName("netty-handler")
   private val nettyMqtt                      = netty.withName("netty-codec-mqtt")
@@ -17,14 +17,12 @@ object Dependencies {
   private val nettyDns                       = netty.withName("netty-resolver-dns")
   private val nettyEpollLinuxX86             = netty.withName("netty-transport-native-epoll")                               classifier "linux-x86_64"
   private val nettyEpollLinuxArm             = netty.withName("netty-transport-native-epoll")                               classifier "linux-aarch_64"
-  private val nettyIoUringLinuxX86           = "io.netty.incubator"                   % "netty-incubator-transport-native-io_uring" % "0.0.16.Final" classifier "linux-x86_64"
+  private val nettyIoUringLinuxX86           = "io.netty.incubator"                   % "netty-incubator-transport-native-io_uring" % "0.0.17.Final" classifier "linux-x86_64"
   private val nettyIoUringLinuxArm           = nettyIoUringLinuxX86                                                                                  classifier "linux-aarch_64"
   private val nettyHttp2                     = netty.withName("netty-codec-http2")
   private val nettyResolverNativeOsXX86      = netty.withName("netty-resolver-dns-native-macos") classifier "osx-x86_64"
   private val nettyResolverNativeOsXArm      = nettyResolverNativeOsXX86                                 classifier "osx-aarch_64"
-  private val nettyTcNative                  = (netty.organization                     % "netty-tcnative-classes"            % "2.0.56.Final")
-    .exclude("org.junit.jupiter", "junit-jupiter-api")
-    .exclude("org.junit.jupiter", "junit-jupiter-engine")
+  private val nettyTcNative                  = netty.organization                     % "netty-tcnative-classes"            % "2.0.58.Final"
   private val nettyTcNativeBoringSsl         = nettyTcNative.withName("netty-tcnative-boringssl-static")
   private val nettyTcNativeBoringSslLinuxX86 = nettyTcNativeBoringSsl  classifier "linux-x86_64"
   private val nettyTcNativeBoringSslLinuxArm = nettyTcNativeBoringSsl  classifier "linux-aarch_64"
@@ -48,7 +46,7 @@ object Dependencies {
     .exclude("org.scala-lang.modules", "scala-collection-compat_2.13")
   private val scopt                          = "com.github.scopt"                    %% "scopt"                             % "3.7.1"
   private val scalaLogging                   = "com.typesafe.scala-logging"          %% "scala-logging"                     % "3.9.5"
-  private val jackson                        = "com.fasterxml.jackson.core"           % "jackson-databind"                  % "2.14.1"
+  private val jackson                        = "com.fasterxml.jackson.core"           % "jackson-databind"                  % "2.14.2"
   private val sfm                            = ("org.simpleflatmapper"                % "lightning-csv"                     % "8.2.3")
     .exclude("org.simpleflatmapper", "ow2-asm")
   private val lagarto                        = "org.jodd"                             % "jodd-lagarto"                      % "6.0.6"
